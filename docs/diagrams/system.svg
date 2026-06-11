@@ -1,135 +1,280 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1340" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#0e0f12"/>
       <stop offset="1" stop-color="#16181d"/>
     </linearGradient>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+
+    <marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#7cc4ff"/>
     </marker>
-    <marker id="arrow-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#ff7aa3"/>
-    </marker>
-    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#a3e36a"/>
     </marker>
-    <filter id="glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ffa657"/>
+    </marker>
+    <marker id="mp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ff7aa3"/>
+    </marker>
+    <marker id="mv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#cba6f7"/>
+    </marker>
+    <marker id="mw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8a8f99"/>
+    </marker>
+
+    <style>
+      .h1 { font-size: 22px; font-weight: 700; fill: #e6e8ec; }
+      .h2 { font-size: 16px; font-weight: 600; fill: #e6e8ec; }
+      .hsub { font-size: 12px; fill: #8a8f99; }
+      .label { font-size: 13px; font-weight: 600; }
+      .sub { font-size: 11px; fill: #8a8f99; }
+      .pill { font-size: 11px; fill: #e6e8ec; }
+      .arrowtxt { font-size: 11px; }
+      .machine { fill: #14171c; stroke-width: 2; stroke-dasharray: 6 4; }
+      .machine-title { font-size: 13px; font-weight: 700; letter-spacing: 0.05em; }
+      .box { fill: #1d2026; stroke-width: 1.5; }
+    </style>
   </defs>
 
-  <rect width="1200" height="720" fill="url(#bg)"/>
+  <rect width="1280" height="1340" fill="url(#bg)"/>
 
-  <text x="600" y="36" text-anchor="middle" fill="#e6e8ec" font-size="20" font-weight="600">claude-monorepo — system architecture</text>
-  <text x="600" y="58" text-anchor="middle" fill="#8a8f99" font-size="12">brain (markdown) ↔ sync-daemon ↔ Firestore ↔ iOS app ↔ relay → Claude</text>
+  <!-- ============ HEADER ============ -->
+  <text x="640" y="40" text-anchor="middle" class="h1">claude-monorepo — deployment topologies</text>
+  <text x="640" y="62" text-anchor="middle" class="hsub">the agent (relay) and sync can run wherever you want. three common shapes:</text>
 
-  <g transform="translate(60,150)">
-    <rect width="180" height="100" rx="10" fill="#1d2026" stroke="#7cc4ff" stroke-width="1.5"/>
-    <text x="90" y="28" text-anchor="middle" fill="#7cc4ff" font-weight="600">apps/brain/</text>
-    <text x="90" y="48" text-anchor="middle" fill="#e6e8ec" font-size="11">~32 markdown files</text>
-    <text x="90" y="64" text-anchor="middle" fill="#8a8f99" font-size="10">daily/today.md</text>
-    <text x="90" y="78" text-anchor="middle" fill="#8a8f99" font-size="10">backlog/*.md  goals/*.md</text>
-    <text x="90" y="92" text-anchor="middle" fill="#8a8f99" font-size="10">projects/*.md  routines/*.md</text>
+  <!-- ================================================================= -->
+  <!-- ========== TOPOLOGY A — LOCAL-ONLY (no server) =================== -->
+  <!-- ================================================================= -->
+  <g transform="translate(0,90)">
+
+    <rect x="40" y="0" width="1200" height="40" rx="6" fill="#1a2230" stroke="#7cc4ff"/>
+    <text x="60" y="26" class="h2" fill="#7cc4ff">A · local agent  —  no remote server</text>
+    <text x="1220" y="26" text-anchor="end" class="hsub">brain + sync + relay all live on your Mac. iOS reaches it over LAN / Tailscale.</text>
+
+    <!-- Cloud strip -->
+    <rect x="800" y="70" width="160" height="60" rx="10" class="box" stroke="#ffa657"/>
+    <text x="880" y="92" text-anchor="middle" class="label" fill="#ffa657">Firestore</text>
+    <text x="880" y="111" text-anchor="middle" class="sub">cloud · realtime db</text>
+
+    <rect x="990" y="70" width="160" height="60" rx="10" class="box" stroke="#cba6f7"/>
+    <text x="1070" y="92" text-anchor="middle" class="label" fill="#cba6f7">Claude API</text>
+    <text x="1070" y="111" text-anchor="middle" class="sub">anthropic.com</text>
+
+    <text x="970" y="50" text-anchor="middle" class="hsub">─── cloud ───</text>
+
+    <!-- Your Mac container -->
+    <rect x="60" y="190" width="640" height="220" rx="14" class="machine" stroke="#7cc4ff"/>
+    <text x="80" y="180" class="machine-title" fill="#7cc4ff">YOUR MAC</text>
+
+    <!-- brain -->
+    <rect x="90" y="220" width="170" height="80" rx="8" class="box" stroke="#7cc4ff"/>
+    <text x="175" y="245" text-anchor="middle" class="label" fill="#7cc4ff">brain/</text>
+    <text x="175" y="266" text-anchor="middle" class="sub">markdown files</text>
+    <text x="175" y="282" text-anchor="middle" class="sub">daily · backlog · goals</text>
+
+    <!-- sync-daemon -->
+    <rect x="290" y="220" width="170" height="80" rx="8" class="box" stroke="#a3e36a"/>
+    <text x="375" y="245" text-anchor="middle" class="label" fill="#a3e36a">sync-daemon</text>
+    <text x="375" y="266" text-anchor="middle" class="sub">node · chokidar</text>
+    <text x="375" y="282" text-anchor="middle" class="sub">files ↔ Firestore</text>
+
+    <!-- relay -->
+    <rect x="490" y="220" width="170" height="80" rx="8" class="box" stroke="#ff7aa3"/>
+    <text x="575" y="245" text-anchor="middle" class="label" fill="#ff7aa3">relay :8787</text>
+    <text x="575" y="266" text-anchor="middle" class="sub">node · fastify</text>
+    <text x="575" y="282" text-anchor="middle" class="sub">talks to Claude</text>
+
+    <!-- arrows inside Mac (brain ↔ sync) -->
+    <line x1="262" y1="260" x2="288" y2="260" stroke="#a3e36a" stroke-width="2" marker-end="url(#mg)" marker-start="url(#mg)"/>
+    <text x="275" y="248" text-anchor="middle" class="arrowtxt" fill="#a3e36a">fs</text>
+
+    <!-- arrow inside Mac (sync → relay note: weak, optional) -->
+    <line x1="462" y1="260" x2="488" y2="260" stroke="#8a8f99" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#mw)"/>
+
+    <!-- iOS phone (outside, right of Mac) -->
+    <rect x="730" y="220" width="150" height="170" rx="20" class="box" stroke="#9b8cff"/>
+    <rect x="740" y="232" width="130" height="142" rx="3" fill="#0a0b0e" stroke="#2a2e36"/>
+    <text x="805" y="258" text-anchor="middle" class="label" fill="#9b8cff">iOS app</text>
+    <text x="805" y="276" text-anchor="middle" class="sub">ClaudePlanner</text>
+    <text x="805" y="298" text-anchor="middle" class="sub">Today · Browse</text>
+    <text x="805" y="314" text-anchor="middle" class="sub">Talk · Auth</text>
+    <text x="805" y="350" text-anchor="middle" class="sub">— SwiftUI —</text>
+
+    <!-- sync-daemon → Firestore (up + right, label OUTSIDE Mac border) -->
+    <path d="M 375 218 Q 375 160 800 100" fill="none" stroke="#a3e36a" stroke-width="2" marker-end="url(#mg)" marker-start="url(#mg)"/>
+    <text x="430" y="155" class="arrowtxt" fill="#a3e36a">upsert · snapshots</text>
+
+    <!-- relay → Claude (up + right) -->
+    <path d="M 600 218 Q 600 160 990 100" fill="none" stroke="#cba6f7" stroke-width="2" marker-end="url(#mv)"/>
+    <text x="700" y="172" class="arrowtxt" fill="#cba6f7">messages</text>
+
+    <!-- iOS → relay (horizontal arrow between the two boxes; labels in clear vertical band above the boxes) -->
+    <line x1="728" y1="260" x2="662" y2="260" stroke="#ff7aa3" stroke-width="2" marker-end="url(#mp)"/>
+    <text x="695" y="212" text-anchor="middle" class="arrowtxt" fill="#ff7aa3">POST /talk</text>
+    <text x="695" y="395" text-anchor="middle" class="arrowtxt" fill="#8a8f99">via LAN / tailscale</text>
+
+    <!-- iOS → Firestore (right + up) -->
+    <path d="M 805 218 Q 805 160 800 130" fill="none" stroke="#7cc4ff" stroke-width="2" marker-end="url(#mb)" marker-start="url(#mb)"/>
+    <text x="858" y="188" class="arrowtxt" fill="#7cc4ff">snapshots</text>
+
+    <!-- caption at bottom of panel -->
+    <text x="60" y="440" class="hsub">one machine runs everything · iOS connects to that same machine for /talk · Firestore + Claude are the only remote services</text>
   </g>
 
-  <g transform="translate(60,330)">
-    <rect width="180" height="120" rx="10" fill="#1d2026" stroke="#a3e36a" stroke-width="1.5"/>
-    <text x="90" y="28" text-anchor="middle" fill="#a3e36a" font-weight="600">apps/sync-daemon/</text>
-    <text x="90" y="48" text-anchor="middle" fill="#e6e8ec" font-size="11">Node · chokidar</text>
-    <text x="90" y="68" text-anchor="middle" fill="#8a8f99" font-size="10">watcher.js  →  Firestore</text>
-    <text x="90" y="82" text-anchor="middle" fill="#8a8f99" font-size="10">firestore-watcher.js</text>
-    <text x="90" y="96" text-anchor="middle" fill="#8a8f99" font-size="10">parsers/  sync.js</text>
-    <text x="90" y="112" text-anchor="middle" fill="#a3e36a" font-size="10">2-way file ↔ db sync</text>
+  <!-- ================================================================= -->
+  <!-- ========== TOPOLOGY B — SERVER-BACKED ============================ -->
+  <!-- ================================================================= -->
+  <g transform="translate(0,560)">
+
+    <rect x="40" y="0" width="1200" height="40" rx="6" fill="#2a1a22" stroke="#ff7aa3"/>
+    <text x="60" y="26" class="h2" fill="#ff7aa3">B · server-backed  —  connect your computer to a server</text>
+    <text x="1220" y="26" text-anchor="end" class="hsub">a server runs relay (+ a mirror sync-daemon). your Mac keeps the brain/ source. iOS hits the server.</text>
+
+    <!-- Cloud strip -->
+    <rect x="540" y="70" width="160" height="60" rx="10" class="box" stroke="#ffa657"/>
+    <text x="620" y="92" text-anchor="middle" class="label" fill="#ffa657">Firestore</text>
+    <text x="620" y="111" text-anchor="middle" class="sub">shared by both nodes</text>
+
+    <rect x="990" y="70" width="160" height="60" rx="10" class="box" stroke="#cba6f7"/>
+    <text x="1070" y="92" text-anchor="middle" class="label" fill="#cba6f7">Claude API</text>
+
+    <text x="845" y="50" text-anchor="middle" class="hsub">─── cloud ───</text>
+
+    <!-- Your Computer container (left) -->
+    <rect x="60" y="190" width="350" height="220" rx="14" class="machine" stroke="#7cc4ff"/>
+    <text x="80" y="180" class="machine-title" fill="#7cc4ff">YOUR COMPUTER</text>
+
+    <rect x="90" y="220" width="140" height="80" rx="8" class="box" stroke="#7cc4ff"/>
+    <text x="160" y="245" text-anchor="middle" class="label" fill="#7cc4ff">brain/</text>
+    <text x="160" y="266" text-anchor="middle" class="sub">markdown</text>
+    <text x="160" y="282" text-anchor="middle" class="sub">source of truth</text>
+
+    <rect x="250" y="220" width="140" height="80" rx="8" class="box" stroke="#a3e36a"/>
+    <text x="320" y="245" text-anchor="middle" class="label" fill="#a3e36a">sync-daemon</text>
+    <text x="320" y="266" text-anchor="middle" class="sub">files → Firestore</text>
+    <text x="320" y="282" text-anchor="middle" class="sub">listens for changes</text>
+
+    <line x1="232" y1="260" x2="248" y2="260" stroke="#a3e36a" stroke-width="2" marker-end="url(#mg)" marker-start="url(#mg)"/>
+
+    <text x="160" y="334" text-anchor="middle" class="sub">edit notes here</text>
+    <text x="320" y="334" text-anchor="middle" class="sub">writes back from Firestore</text>
+
+    <!-- Server container (middle-right) -->
+    <rect x="510" y="190" width="430" height="220" rx="14" class="machine" stroke="#ff7aa3"/>
+    <text x="530" y="180" class="machine-title" fill="#ff7aa3">SERVER  (e.g. headscale, hetzner, …)</text>
+
+    <rect x="540" y="220" width="120" height="80" rx="8" class="box" stroke="#7cc4ff"/>
+    <text x="600" y="245" text-anchor="middle" class="label" fill="#7cc4ff">brain/</text>
+    <text x="600" y="266" text-anchor="middle" class="sub">mirror</text>
+    <text x="600" y="282" text-anchor="middle" class="sub">(optional)</text>
+
+    <rect x="680" y="220" width="120" height="80" rx="8" class="box" stroke="#a3e36a"/>
+    <text x="740" y="245" text-anchor="middle" class="label" fill="#a3e36a">sync-daemon</text>
+    <text x="740" y="266" text-anchor="middle" class="sub">2nd node</text>
+    <text x="740" y="282" text-anchor="middle" class="sub">(optional)</text>
+
+    <rect x="820" y="220" width="100" height="80" rx="8" class="box" stroke="#ff7aa3"/>
+    <text x="870" y="245" text-anchor="middle" class="label" fill="#ff7aa3">relay :8787</text>
+    <text x="870" y="266" text-anchor="middle" class="sub">fastify</text>
+
+    <line x1="662" y1="260" x2="678" y2="260" stroke="#a3e36a" stroke-width="2" marker-end="url(#mg)" marker-start="url(#mg)"/>
+    <line x1="802" y1="260" x2="818" y2="260" stroke="#ffa657" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#mo)"/>
+
+    <!-- iOS phone (far right) -->
+    <rect x="990" y="220" width="150" height="170" rx="20" class="box" stroke="#9b8cff"/>
+    <rect x="1000" y="232" width="130" height="142" rx="3" fill="#0a0b0e" stroke="#2a2e36"/>
+    <text x="1065" y="262" text-anchor="middle" class="label" fill="#9b8cff">iOS app</text>
+    <text x="1065" y="296" text-anchor="middle" class="sub">authenticated</text>
+    <text x="1065" y="312" text-anchor="middle" class="sub">via Firebase</text>
+    <text x="1065" y="350" text-anchor="middle" class="sub">— public DNS —</text>
+
+    <!-- COMPUTER ↔ SERVER connection (the key "connect a computer to a server" arrow) -->
+    <path d="M 410 320 L 510 320" stroke="#8a8f99" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#mw)" marker-start="url(#mw)"/>
+    <text x="460" y="308" text-anchor="middle" class="arrowtxt" fill="#8a8f99">tailscale</text>
+    <text x="460" y="338" text-anchor="middle" class="arrowtxt" fill="#8a8f99">(admin only)</text>
+
+    <!-- Computer's sync → Firestore -->
+    <path d="M 320 218 Q 320 160 540 100" fill="none" stroke="#a3e36a" stroke-width="2" marker-end="url(#mg)" marker-start="url(#mg)"/>
+    <text x="350" y="155" class="arrowtxt" fill="#a3e36a">upsert · snapshots</text>
+
+    <!-- Server's sync ↔ Firestore -->
+    <path d="M 740 218 Q 740 160 700 130" fill="none" stroke="#a3e36a" stroke-width="2" marker-end="url(#mg)" marker-start="url(#mg)"/>
+    <text x="780" y="172" class="arrowtxt" fill="#a3e36a">2-way</text>
+
+    <!-- Relay → Claude -->
+    <path d="M 905 218 Q 905 160 990 100" fill="none" stroke="#cba6f7" stroke-width="2" marker-end="url(#mv)"/>
+    <text x="945" y="172" class="arrowtxt" fill="#cba6f7">messages</text>
+
+    <!-- iOS → relay (centered between boxes; labels above + below in clear bands) -->
+    <line x1="988" y1="260" x2="922" y2="260" stroke="#ff7aa3" stroke-width="2" marker-end="url(#mp)"/>
+    <text x="955" y="212" text-anchor="middle" class="arrowtxt" fill="#ff7aa3">POST /talk</text>
+    <text x="955" y="395" text-anchor="middle" class="arrowtxt" fill="#8a8f99">over public DNS</text>
+
+    <!-- iOS → Firestore -->
+    <path d="M 1065 218 Q 1065 30 700 100" fill="none" stroke="#7cc4ff" stroke-width="2" marker-end="url(#mb)" marker-start="url(#mb)"/>
+    <text x="930" y="58" class="arrowtxt" fill="#7cc4ff">snapshots</text>
+
+    <text x="60" y="440" class="hsub">brain stays editable on your computer · relay lives on the server so iOS can reach it anywhere · Firestore syncs both file-system nodes</text>
   </g>
 
-  <g transform="translate(380,260)">
-    <rect width="200" height="160" rx="14" fill="#1d2026" stroke="#ffa657" stroke-width="2" filter="url(#glow)"/>
-    <text x="100" y="32" text-anchor="middle" fill="#ffa657" font-weight="700" font-size="14">Firebase</text>
-    <text x="100" y="50" text-anchor="middle" fill="#e6e8ec" font-size="11">Firestore · Auth</text>
-    <line x1="20" y1="62" x2="180" y2="62" stroke="#2a2e36"/>
-    <text x="100" y="80" text-anchor="middle" fill="#8a8f99" font-size="10">users/{uid}/files/{fileId}</text>
-    <text x="100" y="94" text-anchor="middle" fill="#8a8f99" font-size="10">users/{uid}/tasks/{taskId}</text>
-    <text x="100" y="108" text-anchor="middle" fill="#8a8f99" font-size="10">users/{uid}/state</text>
-    <line x1="20" y1="120" x2="180" y2="120" stroke="#2a2e36"/>
-    <text x="100" y="138" text-anchor="middle" fill="#ffa657" font-size="10">real-time listeners</text>
-    <text x="100" y="152" text-anchor="middle" fill="#8a8f99" font-size="10">ID token auth</text>
+  <!-- ================================================================= -->
+  <!-- ========== TOPOLOGY C — AGENT-ONLY (no Firestore, no iOS) ======== -->
+  <!-- ================================================================= -->
+  <g transform="translate(0,1030)">
+
+    <rect x="40" y="0" width="1200" height="40" rx="6" fill="#1a2a1a" stroke="#a3e36a"/>
+    <text x="60" y="26" class="h2" fill="#a3e36a">C · agent-only  —  the minimum viable shape</text>
+    <text x="1220" y="26" text-anchor="end" class="hsub">just a CLI agent + brain/ on disk. no daemon, no relay, no iOS. (a future cli/ app could live here.)</text>
+
+    <!-- Cloud (just Claude) -->
+    <rect x="990" y="70" width="160" height="60" rx="10" class="box" stroke="#cba6f7"/>
+    <text x="1070" y="92" text-anchor="middle" class="label" fill="#cba6f7">Claude API</text>
+
+    <text x="1070" y="50" text-anchor="middle" class="hsub">─── cloud ───</text>
+
+    <!-- Your Mac container -->
+    <rect x="60" y="190" width="640" height="100" rx="14" class="machine" stroke="#7cc4ff"/>
+    <text x="80" y="180" class="machine-title" fill="#7cc4ff">YOUR MAC (or any laptop)</text>
+
+    <rect x="90" y="210" width="200" height="60" rx="8" class="box" stroke="#7cc4ff"/>
+    <text x="190" y="234" text-anchor="middle" class="label" fill="#7cc4ff">brain/</text>
+    <text x="190" y="252" text-anchor="middle" class="sub">markdown on disk</text>
+
+    <rect x="320" y="210" width="350" height="60" rx="8" class="box" stroke="#a3e36a"/>
+    <text x="495" y="234" text-anchor="middle" class="label" fill="#a3e36a">cli agent  (e.g. claude code / aider / your own)</text>
+    <text x="495" y="252" text-anchor="middle" class="sub">reads brain/ directly · talks to Claude · writes back</text>
+
+    <line x1="292" y1="240" x2="318" y2="240" stroke="#a3e36a" stroke-width="2" marker-end="url(#mg)" marker-start="url(#mg)"/>
+
+    <!-- agent → Claude -->
+    <path d="M 670 220 Q 880 220 990 100" fill="none" stroke="#cba6f7" stroke-width="2" marker-end="url(#mv)"/>
+    <text x="820" y="180" class="arrowtxt" fill="#cba6f7">messages</text>
+
+    <text x="60" y="320" class="hsub">no Firestore, no relay, no phone · best for terminal-only workflows · easiest to set up · no shared state across devices</text>
   </g>
 
-  <g transform="translate(740,140)">
-    <rect width="200" height="220" rx="14" fill="#1d2026" stroke="#9b8cff" stroke-width="2"/>
-    <text x="100" y="32" text-anchor="middle" fill="#9b8cff" font-weight="700" font-size="14">apps/ios-app/</text>
-    <text x="100" y="50" text-anchor="middle" fill="#e6e8ec" font-size="11">SwiftUI · ClaudePlanner</text>
-    <line x1="20" y1="62" x2="180" y2="62" stroke="#2a2e36"/>
-    <text x="20" y="80" fill="#8a8f99" font-size="10">  Auth/</text>
-    <text x="20" y="94" fill="#8a8f99" font-size="10">  Today/  ←  today.md</text>
-    <text x="20" y="108" fill="#8a8f99" font-size="10">  Browse/ ←  all files</text>
-    <text x="20" y="122" fill="#8a8f99" font-size="10">  Talk/  →  relay</text>
-    <line x1="20" y1="134" x2="180" y2="134" stroke="#2a2e36"/>
-    <text x="20" y="152" fill="#8a8f99" font-size="10">  Services/</text>
-    <text x="20" y="166" fill="#8a8f99" font-size="10">    FilesStore</text>
-    <text x="20" y="180" fill="#8a8f99" font-size="10">    TodayStore</text>
-    <text x="20" y="194" fill="#8a8f99" font-size="10">  Talk/SpeechRecognizer</text>
-    <text x="20" y="208" fill="#8a8f99" font-size="10">  Talk/TTSService</text>
-  </g>
+  <!-- ================================================================= -->
+  <!-- ============ LEGEND ============================================== -->
+  <!-- ================================================================= -->
+  <g transform="translate(40,1230)">
+    <text x="600" y="0" text-anchor="middle" class="hsub">colors are stable across topologies — same component, same color</text>
 
-  <g transform="translate(740,420)">
-    <rect width="200" height="140" rx="14" fill="#1d2026" stroke="#ff7aa3" stroke-width="2"/>
-    <text x="100" y="32" text-anchor="middle" fill="#ff7aa3" font-weight="700" font-size="14">apps/relay/</text>
-    <text x="100" y="50" text-anchor="middle" fill="#e6e8ec" font-size="11">Node · Fastify :8787</text>
-    <line x1="20" y1="62" x2="180" y2="62" stroke="#2a2e36"/>
-    <text x="100" y="80" text-anchor="middle" fill="#8a8f99" font-size="10">index.js  · auth+routes</text>
-    <text x="100" y="94" text-anchor="middle" fill="#8a8f99" font-size="10">claude.js · Anthropic SDK</text>
-    <text x="100" y="108" text-anchor="middle" fill="#8a8f99" font-size="10">tools.js  · list/check/read</text>
-    <text x="100" y="122" text-anchor="middle" fill="#8a8f99" font-size="10">firebase.js · admin</text>
-  </g>
+    <g transform="translate(0,18)">
+      <circle cx="10" cy="50" r="5" fill="#7cc4ff"/>      <text x="22" y="54" class="pill">brain / markdown / iOS view of files</text>
+      <circle cx="10" cy="72" r="5" fill="#a3e36a"/>      <text x="22" y="76" class="pill">sync-daemon · file ↔ db sync</text>
 
-  <g transform="translate(1010,460)">
-    <rect width="150" height="80" rx="40" fill="#1d2026" stroke="#cba6f7" stroke-width="2"/>
-    <text x="75" y="34" text-anchor="middle" fill="#cba6f7" font-weight="700" font-size="14">Claude API</text>
-    <text x="75" y="54" text-anchor="middle" fill="#8a8f99" font-size="11">claude-opus-4-7</text>
-    <text x="75" y="68" text-anchor="middle" fill="#8a8f99" font-size="10">tool use loop</text>
-  </g>
+      <circle cx="320" cy="50" r="5" fill="#ff7aa3"/>     <text x="332" y="54" class="pill">relay · the Claude-talking server</text>
+      <circle cx="320" cy="72" r="5" fill="#9b8cff"/>     <text x="332" y="76" class="pill">iOS client (SwiftUI)</text>
 
-  <line x1="150" y1="252" x2="150" y2="328" stroke="#a3e36a" stroke-width="2" marker-end="url(#arrow-green)" marker-start="url(#arrow-green)"/>
-  <text x="170" y="295" fill="#a3e36a" font-size="11">fs events</text>
+      <circle cx="640" cy="50" r="5" fill="#ffa657"/>     <text x="652" y="54" class="pill">Firestore · live shared db</text>
+      <circle cx="640" cy="72" r="5" fill="#cba6f7"/>     <text x="652" y="76" class="pill">Claude API (Anthropic)</text>
 
-  <line x1="240" y1="390" x2="376" y2="340" stroke="#a3e36a" stroke-width="2" marker-end="url(#arrow-green)" marker-start="url(#arrow-green)"/>
-  <text x="260" y="380" fill="#a3e36a" font-size="11">upsert + listen</text>
-
-  <line x1="580" y1="320" x2="740" y2="250" stroke="#7cc4ff" stroke-width="2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
-  <text x="600" y="270" fill="#7cc4ff" font-size="11">snapshots</text>
-
-  <line x1="840" y1="360" x2="840" y2="416" stroke="#ff7aa3" stroke-width="2" marker-end="url(#arrow-pink)"/>
-  <text x="850" y="395" fill="#ff7aa3" font-size="11">POST /talk (bearer ID token)</text>
-
-  <line x1="940" y1="490" x2="1006" y2="495" stroke="#cba6f7" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="940" y="480" fill="#cba6f7" font-size="11">messages</text>
-
-  <line x1="740" y1="486" x2="582" y2="360" stroke="#ffa657" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
-  <text x="600" y="450" fill="#ffa657" font-size="11">tool calls read/write</text>
-
-  <g transform="translate(60,580)">
-    <rect width="1080" height="110" rx="10" fill="#16181d" stroke="#2a2e36"/>
-    <text x="20" y="28" fill="#e6e8ec" font-weight="600">Legend</text>
-
-    <circle cx="20" cy="56" r="5" fill="#7cc4ff"/>
-    <text x="34" y="60" fill="#e6e8ec" font-size="12">brain content (markdown)</text>
-
-    <circle cx="20" cy="78" r="5" fill="#a3e36a"/>
-    <text x="34" y="82" fill="#e6e8ec" font-size="12">file ↔ db sync (sync-daemon)</text>
-
-    <circle cx="20" cy="100" r="5" fill="#ffa657"/>
-    <text x="34" y="104" fill="#e6e8ec" font-size="12">Firestore real-time</text>
-
-    <circle cx="380" cy="56" r="5" fill="#9b8cff"/>
-    <text x="394" y="60" fill="#e6e8ec" font-size="12">iOS SwiftUI client</text>
-
-    <circle cx="380" cy="78" r="5" fill="#ff7aa3"/>
-    <text x="394" y="82" fill="#e6e8ec" font-size="12">relay (Talk endpoint)</text>
-
-    <circle cx="380" cy="100" r="5" fill="#cba6f7"/>
-    <text x="394" y="104" fill="#e6e8ec" font-size="12">Claude API (Anthropic)</text>
-
-    <text x="720" y="60" fill="#8a8f99" font-size="11">Truth lives in markdown.  Firestore is the live mirror.</text>
-    <text x="720" y="82" fill="#8a8f99" font-size="11">iOS reads from Firestore, talks to Claude via relay.</text>
-    <text x="720" y="104" fill="#8a8f99" font-size="11">Relay's tools read+write Firestore on Claude's behalf.</text>
+      <line x1="950" y1="50" x2="985" y2="50" stroke="#8a8f99" stroke-width="2" stroke-dasharray="5 4"/>
+      <text x="995" y="54" class="pill">machine boundary / network hop</text>
+      <line x1="950" y1="72" x2="985" y2="72" stroke="#a3e36a" stroke-width="2"/>
+      <text x="995" y="76" class="pill">data flow (typed arrows)</text>
+    </g>
   </g>
 </svg>
