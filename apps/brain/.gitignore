@@ -1,0 +1,22 @@
+# Personal data — never commit
+# Uncomment any line below if you want to use this template as your live brain
+# and keep your real notes out of git.
+
+# daily/today.md
+# daily/future.md
+# daily/history/
+# backlog/
+# goals/
+# notes/
+# projects/
+# memory/
+# routines/
+# archive/
+# dashboard.md
+
+# OS / editor cruft
+.DS_Store
+.obsidian/
+.vscode/
+.idea/
+*.swp

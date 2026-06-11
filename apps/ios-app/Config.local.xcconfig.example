@@ -1,0 +1,10 @@
+// Template. Copy to `Config.local.xcconfig` (gitignored) and fill in.
+//
+//   cp Config.local.xcconfig.example Config.local.xcconfig
+//   # edit the URL below
+//   xcodegen generate
+//
+// xcconfig interprets `//` as a comment. To embed a URL with `://`, split
+// the slashes with `$()` (an empty-substitution token), as below.
+
+RELAY_BASE_URL = https:/$()/your-relay-domain.example

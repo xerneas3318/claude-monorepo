@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0e0f12"/>
+      <stop offset="1" stop-color="#16181d"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7cc4ff"/>
+    </marker>
+    <marker id="arrow-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ff7aa3"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#a3e36a"/>
+    </marker>
+    <filter id="glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <rect width="1200" height="720" fill="url(#bg)"/>
+
+  <text x="600" y="36" text-anchor="middle" fill="#e6e8ec" font-size="20" font-weight="600">claude-monorepo — system architecture</text>
+  <text x="600" y="58" text-anchor="middle" fill="#8a8f99" font-size="12">brain (markdown) ↔ sync-daemon ↔ Firestore ↔ iOS app ↔ relay → Claude</text>
+
+  <g transform="translate(60,150)">
+    <rect width="180" height="100" rx="10" fill="#1d2026" stroke="#7cc4ff" stroke-width="1.5"/>
+    <text x="90" y="28" text-anchor="middle" fill="#7cc4ff" font-weight="600">apps/brain/</text>
+    <text x="90" y="48" text-anchor="middle" fill="#e6e8ec" font-size="11">~32 markdown files</text>
+    <text x="90" y="64" text-anchor="middle" fill="#8a8f99" font-size="10">daily/today.md</text>
+    <text x="90" y="78" text-anchor="middle" fill="#8a8f99" font-size="10">backlog/*.md  goals/*.md</text>
+    <text x="90" y="92" text-anchor="middle" fill="#8a8f99" font-size="10">projects/*.md  routines/*.md</text>
+  </g>
+
+  <g transform="translate(60,330)">
+    <rect width="180" height="120" rx="10" fill="#1d2026" stroke="#a3e36a" stroke-width="1.5"/>
+    <text x="90" y="28" text-anchor="middle" fill="#a3e36a" font-weight="600">apps/sync-daemon/</text>
+    <text x="90" y="48" text-anchor="middle" fill="#e6e8ec" font-size="11">Node · chokidar</text>
+    <text x="90" y="68" text-anchor="middle" fill="#8a8f99" font-size="10">watcher.js  →  Firestore</text>
+    <text x="90" y="82" text-anchor="middle" fill="#8a8f99" font-size="10">firestore-watcher.js</text>
+    <text x="90" y="96" text-anchor="middle" fill="#8a8f99" font-size="10">parsers/  sync.js</text>
+    <text x="90" y="112" text-anchor="middle" fill="#a3e36a" font-size="10">2-way file ↔ db sync</text>
+  </g>
+
+  <g transform="translate(380,260)">
+    <rect width="200" height="160" rx="14" fill="#1d2026" stroke="#ffa657" stroke-width="2" filter="url(#glow)"/>
+    <text x="100" y="32" text-anchor="middle" fill="#ffa657" font-weight="700" font-size="14">Firebase</text>
+    <text x="100" y="50" text-anchor="middle" fill="#e6e8ec" font-size="11">Firestore · Auth</text>
+    <line x1="20" y1="62" x2="180" y2="62" stroke="#2a2e36"/>
+    <text x="100" y="80" text-anchor="middle" fill="#8a8f99" font-size="10">users/{uid}/files/{fileId}</text>
+    <text x="100" y="94" text-anchor="middle" fill="#8a8f99" font-size="10">users/{uid}/tasks/{taskId}</text>
+    <text x="100" y="108" text-anchor="middle" fill="#8a8f99" font-size="10">users/{uid}/state</text>
+    <line x1="20" y1="120" x2="180" y2="120" stroke="#2a2e36"/>
+    <text x="100" y="138" text-anchor="middle" fill="#ffa657" font-size="10">real-time listeners</text>
+    <text x="100" y="152" text-anchor="middle" fill="#8a8f99" font-size="10">ID token auth</text>
+  </g>
+
+  <g transform="translate(740,140)">
+    <rect width="200" height="220" rx="14" fill="#1d2026" stroke="#9b8cff" stroke-width="2"/>
+    <text x="100" y="32" text-anchor="middle" fill="#9b8cff" font-weight="700" font-size="14">apps/ios-app/</text>
+    <text x="100" y="50" text-anchor="middle" fill="#e6e8ec" font-size="11">SwiftUI · ClaudePlanner</text>
+    <line x1="20" y1="62" x2="180" y2="62" stroke="#2a2e36"/>
+    <text x="20" y="80" fill="#8a8f99" font-size="10">  Auth/</text>
+    <text x="20" y="94" fill="#8a8f99" font-size="10">  Today/  ←  today.md</text>
+    <text x="20" y="108" fill="#8a8f99" font-size="10">  Browse/ ←  all files</text>
+    <text x="20" y="122" fill="#8a8f99" font-size="10">  Talk/  →  relay</text>
+    <line x1="20" y1="134" x2="180" y2="134" stroke="#2a2e36"/>
+    <text x="20" y="152" fill="#8a8f99" font-size="10">  Services/</text>
+    <text x="20" y="166" fill="#8a8f99" font-size="10">    FilesStore</text>
+    <text x="20" y="180" fill="#8a8f99" font-size="10">    TodayStore</text>
+    <text x="20" y="194" fill="#8a8f99" font-size="10">  Talk/SpeechRecognizer</text>
+    <text x="20" y="208" fill="#8a8f99" font-size="10">  Talk/TTSService</text>
+  </g>
+
+  <g transform="translate(740,420)">
+    <rect width="200" height="140" rx="14" fill="#1d2026" stroke="#ff7aa3" stroke-width="2"/>
+    <text x="100" y="32" text-anchor="middle" fill="#ff7aa3" font-weight="700" font-size="14">apps/relay/</text>
+    <text x="100" y="50" text-anchor="middle" fill="#e6e8ec" font-size="11">Node · Fastify :8787</text>
+    <line x1="20" y1="62" x2="180" y2="62" stroke="#2a2e36"/>
+    <text x="100" y="80" text-anchor="middle" fill="#8a8f99" font-size="10">index.js  · auth+routes</text>
+    <text x="100" y="94" text-anchor="middle" fill="#8a8f99" font-size="10">claude.js · Anthropic SDK</text>
+    <text x="100" y="108" text-anchor="middle" fill="#8a8f99" font-size="10">tools.js  · list/check/read</text>
+    <text x="100" y="122" text-anchor="middle" fill="#8a8f99" font-size="10">firebase.js · admin</text>
+  </g>
+
+  <g transform="translate(1010,460)">
+    <rect width="150" height="80" rx="40" fill="#1d2026" stroke="#cba6f7" stroke-width="2"/>
+    <text x="75" y="34" text-anchor="middle" fill="#cba6f7" font-weight="700" font-size="14">Claude API</text>
+    <text x="75" y="54" text-anchor="middle" fill="#8a8f99" font-size="11">claude-opus-4-7</text>
+    <text x="75" y="68" text-anchor="middle" fill="#8a8f99" font-size="10">tool use loop</text>
+  </g>
+
+  <line x1="150" y1="252" x2="150" y2="328" stroke="#a3e36a" stroke-width="2" marker-end="url(#arrow-green)" marker-start="url(#arrow-green)"/>
+  <text x="170" y="295" fill="#a3e36a" font-size="11">fs events</text>
+
+  <line x1="240" y1="390" x2="376" y2="340" stroke="#a3e36a" stroke-width="2" marker-end="url(#arrow-green)" marker-start="url(#arrow-green)"/>
+  <text x="260" y="380" fill="#a3e36a" font-size="11">upsert + listen</text>
+
+  <line x1="580" y1="320" x2="740" y2="250" stroke="#7cc4ff" stroke-width="2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <text x="600" y="270" fill="#7cc4ff" font-size="11">snapshots</text>
+
+  <line x1="840" y1="360" x2="840" y2="416" stroke="#ff7aa3" stroke-width="2" marker-end="url(#arrow-pink)"/>
+  <text x="850" y="395" fill="#ff7aa3" font-size="11">POST /talk (bearer ID token)</text>
+
+  <line x1="940" y1="490" x2="1006" y2="495" stroke="#cba6f7" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="940" y="480" fill="#cba6f7" font-size="11">messages</text>
+
+  <line x1="740" y1="486" x2="582" y2="360" stroke="#ffa657" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+  <text x="600" y="450" fill="#ffa657" font-size="11">tool calls read/write</text>
+
+  <g transform="translate(60,580)">
+    <rect width="1080" height="110" rx="10" fill="#16181d" stroke="#2a2e36"/>
+    <text x="20" y="28" fill="#e6e8ec" font-weight="600">Legend</text>
+
+    <circle cx="20" cy="56" r="5" fill="#7cc4ff"/>
+    <text x="34" y="60" fill="#e6e8ec" font-size="12">brain content (markdown)</text>
+
+    <circle cx="20" cy="78" r="5" fill="#a3e36a"/>
+    <text x="34" y="82" fill="#e6e8ec" font-size="12">file ↔ db sync (sync-daemon)</text>
+
+    <circle cx="20" cy="100" r="5" fill="#ffa657"/>
+    <text x="34" y="104" fill="#e6e8ec" font-size="12">Firestore real-time</text>
+
+    <circle cx="380" cy="56" r="5" fill="#9b8cff"/>
+    <text x="394" y="60" fill="#e6e8ec" font-size="12">iOS SwiftUI client</text>
+
+    <circle cx="380" cy="78" r="5" fill="#ff7aa3"/>
+    <text x="394" y="82" fill="#e6e8ec" font-size="12">relay (Talk endpoint)</text>
+
+    <circle cx="380" cy="100" r="5" fill="#cba6f7"/>
+    <text x="394" y="104" fill="#e6e8ec" font-size="12">Claude API (Anthropic)</text>
+
+    <text x="720" y="60" fill="#8a8f99" font-size="11">Truth lives in markdown.  Firestore is the live mirror.</text>
+    <text x="720" y="82" fill="#8a8f99" font-size="11">iOS reads from Firestore, talks to Claude via relay.</text>
+    <text x="720" y="104" fill="#8a8f99" font-size="11">Relay's tools read+write Firestore on Claude's behalf.</text>
+  </g>
+</svg>

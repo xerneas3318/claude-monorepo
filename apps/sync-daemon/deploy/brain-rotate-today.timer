@@ -1,0 +1,12 @@
+[Unit]
+Description=Run brain-rotate-today daily at 4am America/New_York
+
+[Timer]
+# 04:00 local time (the service has TZ=America/New_York set).
+OnCalendar=*-*-* 04:00:00
+# Run on next boot if we missed the scheduled time (e.g. machine was down).
+Persistent=true
+Unit=brain-rotate-today.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Placeholder. Replace this file with the real GoogleService-Info.plist
+  downloaded from Firebase Console → Project Settings → Your apps → iOS app
+  (use whatever bundle id you set in `ios-app/project.yml`).
+
+  Save it next to this file as `GoogleService-Info.plist` (no `.example`).
+  The xcodegen `resources` block picks it up as an optional resource.
+-->
+<plist version="1.0">
+<dict>
+    <key>PROJECT_ID</key>
+    <string>your-firebase-project-id</string>
+    <key>BUNDLE_ID</key>
+    <string>com.your-org.claudeplanner</string>
+    <key>API_KEY</key>
+    <string>REPLACE_ME</string>
+    <key>GCM_SENDER_ID</key>
+    <string>REPLACE_ME</string>
+    <key>GOOGLE_APP_ID</key>
+    <string>REPLACE_ME</string>
+    <key>STORAGE_BUCKET</key>
+    <string>your-firebase-project-id.appspot.com</string>
+    <key>IS_ANALYTICS_ENABLED</key>
+    <false/>
+    <key>IS_APPINVITE_ENABLED</key>
+    <true/>
+    <key>IS_GCM_ENABLED</key>
+    <true/>
+    <key>IS_SIGNIN_ENABLED</key>
+    <true/>
+</dict>
+</plist>

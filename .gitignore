@@ -1,0 +1,38 @@
+# macOS
+.DS_Store
+*.swp
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Xcode / Swift
+build/
+DerivedData/
+*.xcuserdata/
+xcuserdata/
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+Pods/
+
+# Env / secrets
+.env
+.env.local
+*-credentials.json
+service-account*.json
+
+# Editor
+.idea/
+.vscode/
+*.iml
+
+# Logs
+*.log

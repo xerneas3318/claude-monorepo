@@ -1,0 +1,14 @@
+# Drop this in /etc/caddy/Caddyfile (or include it). Replace the hostname.
+# Caddy auto-fetches a Let's Encrypt cert on first hit.
+
+relay.your-domain.com {
+    encode gzip
+    reverse_proxy 127.0.0.1:8787
+
+    # Optional but recommended: rate limit /talk. Requires the
+    # caddy-ratelimit module (xcaddy build with github.com/mholt/caddy-ratelimit).
+    # @talk path /talk
+    # rate_limit @talk {
+    #     zone talk_per_ip 10r/m
+    # }
+}

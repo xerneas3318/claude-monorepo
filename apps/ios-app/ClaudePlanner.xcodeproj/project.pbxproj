@@ -1,0 +1,537 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A73CD43D5B9A3D4DC49E874 /* TalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8487ED8DB893F4C7461F49 /* TalkView.swift */; };
+		1D2A554976BAD1D62FC9D3D5 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF659A99F1A1BCE8B5CC4DEB /* AppRouter.swift */; };
+		24D2619E2B28F635A0E6DA6F /* FilesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF20901442EAE114F7A718A /* FilesStore.swift */; };
+		250DC18CD44E73839F799DE3 /* TalkToClaudeIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1F58A7677EEA21E731F5B5 /* TalkToClaudeIntent.swift */; };
+		269C5675C01AE8A5285F1E5B /* TalkSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518A364393CCA6DBA5DC984 /* TalkSettings.swift */; };
+		30DCDBDE28FC471E89711DB2 /* BrainFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5006755635E2D73502640152 /* BrainFile.swift */; };
+		4112E2C5E36F0CD1BFB8E038 /* TodayStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE28BFF6C607A4E5DE5282 /* TodayStore.swift */; };
+		417723680DC518D8EE17E98D /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = C593DE2FC7EDCC4EB48D4432 /* MarkdownUI */; };
+		46ADEB5F234DB807129515A7 /* ClaudePlannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985145913C50EFC0F9707B6 /* ClaudePlannerApp.swift */; };
+		4D2FCF14935551A762DB35AA /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E839CE5E9B8EBC79C0C7F7C5 /* BrowseView.swift */; };
+		53ECB8976BAA70B7F0CA9AE7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18199FA1C930D60FD0C7D46F /* Preview Assets.xcassets */; };
+		54641FC7434655FDEFC50B5B /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D996005924538CF9DD32EB /* SpeechRecognizer.swift */; };
+		659E886AF6F5DFBFCC1EC213 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16C2E32BF1AA6D6A1426C9D3 /* Assets.xcassets */; };
+		6C94C8299F1E80F798D4062F /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1BC72ED3059B35AF082BC4 /* TodayView.swift */; };
+		86E8073CE597A8D88C7C1D71 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 249F988F1E37873B40F5072D /* FirebaseFirestore */; };
+		8BCF8845152750C638D811E1 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02A6668E64F114392189BBF /* AuthService.swift */; };
+		954D9879107F5C7CBC07C4BE /* BrainTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D85B26DD8769096B8117 /* BrainTask.swift */; };
+		9920D08F97FA4B6BB4FBF66F /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AEF12110A10360C2631D88 /* SignInView.swift */; };
+		9CF44187D1EEF2D352082CC7 /* FileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2687110777629E9E445EB63A /* FileDetailView.swift */; };
+		BA72220B0EFB288EBA972402 /* TTSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C360569C098BF03F1B3A48B /* TTSService.swift */; };
+		C7CF7ED598B822F931606A9A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BFB229137B9972E1FC74A7B5 /* FirebaseAuth */; };
+		CB78F2729FA47E590E9AC395 /* ClaudeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC509B9BF304BD2D2EE50B91 /* ClaudeClient.swift */; };
+		D66941B3DC45A630E3352A66 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC56B10501989808562C105E /* GoogleService-Info.plist */; };
+		D6A30E731991F864F75AA0D5 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D2AFCC1119CFD8AECA27B9 /* RootView.swift */; };
+		F4F5B81BB6E5668F59F6644D /* EditTaskSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC725979DE4B8C45308F33B7 /* EditTaskSheet.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		14D2AFCC1119CFD8AECA27B9 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		16C2E32BF1AA6D6A1426C9D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		18199FA1C930D60FD0C7D46F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		18D996005924538CF9DD32EB /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		1C59D85B26DD8769096B8117 /* BrainTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainTask.swift; sourceTree = "<group>"; };
+		2687110777629E9E445EB63A /* FileDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDetailView.swift; sourceTree = "<group>"; };
+		2C360569C098BF03F1B3A48B /* TTSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSService.swift; sourceTree = "<group>"; };
+		3CF20901442EAE114F7A718A /* FilesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesStore.swift; sourceTree = "<group>"; };
+		40EE28BFF6C607A4E5DE5282 /* TodayStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayStore.swift; sourceTree = "<group>"; };
+		5006755635E2D73502640152 /* BrainFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainFile.swift; sourceTree = "<group>"; };
+		5518A364393CCA6DBA5DC984 /* TalkSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkSettings.swift; sourceTree = "<group>"; };
+		A0C7ECA01B15F4B9C7EC8CF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A1AEF12110A10360C2631D88 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		AA1BC72ED3059B35AF082BC4 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		B944BD0C01DAF56DBEF10D31 /* ClaudePlanner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClaudePlanner.entitlements; sourceTree = "<group>"; };
+		BB1F58A7677EEA21E731F5B5 /* TalkToClaudeIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkToClaudeIntent.swift; sourceTree = "<group>"; };
+		BC56B10501989808562C105E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C02A6668E64F114392189BBF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		DC725979DE4B8C45308F33B7 /* EditTaskSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskSheet.swift; sourceTree = "<group>"; };
+		E839CE5E9B8EBC79C0C7F7C5 /* BrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
+		E985145913C50EFC0F9707B6 /* ClaudePlannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudePlannerApp.swift; sourceTree = "<group>"; };
+		EB8487ED8DB893F4C7461F49 /* TalkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkView.swift; sourceTree = "<group>"; };
+		EC509B9BF304BD2D2EE50B91 /* ClaudeClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeClient.swift; sourceTree = "<group>"; };
+		EF659A99F1A1BCE8B5CC4DEB /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		FBAC42A3A5B03540267102E4 /* ClaudePlanner.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ClaudePlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		"TEMP_F0766E74-4F93-4F7A-969E-9060D69CBBC9" /* Config.local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.local.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		676D8931AAB024F505B44F19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7CF7ED598B822F931606A9A /* FirebaseAuth in Frameworks */,
+				86E8073CE597A8D88C7C1D71 /* FirebaseFirestore in Frameworks */,
+				417723680DC518D8EE17E98D /* MarkdownUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0CE10F1269EB64DE1CCBAA4F = {
+			isa = PBXGroup;
+			children = (
+				1E748E646C3B962C3AE48688 /* ClaudePlanner */,
+				20CB40DCB986B44937EFD891 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1E748E646C3B962C3AE48688 /* ClaudePlanner */ = {
+			isa = PBXGroup;
+			children = (
+				16C2E32BF1AA6D6A1426C9D3 /* Assets.xcassets */,
+				B944BD0C01DAF56DBEF10D31 /* ClaudePlanner.entitlements */,
+				BC56B10501989808562C105E /* GoogleService-Info.plist */,
+				A0C7ECA01B15F4B9C7EC8CF3 /* Info.plist */,
+				57C76ECD7981B958407D3249 /* App */,
+				34C385C1E941B3A6082328AB /* Auth */,
+				3F8A956AA73805D064CE134B /* Browse */,
+				9A872E9D983FB6F7B50C9030 /* Models */,
+				5D72C73833B9E0D2FA9A13AD /* Preview Content */,
+				F049FAC4151ECEE68DBE13EC /* Services */,
+				DA0BCC829D0E99EDDDEFEA9F /* Talk */,
+				B8CF75618F2F2F97F38529AC /* Today */,
+			);
+			path = ClaudePlanner;
+			sourceTree = "<group>";
+		};
+		20CB40DCB986B44937EFD891 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FBAC42A3A5B03540267102E4 /* ClaudePlanner.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		34C385C1E941B3A6082328AB /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				C02A6668E64F114392189BBF /* AuthService.swift */,
+				A1AEF12110A10360C2631D88 /* SignInView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		3F8A956AA73805D064CE134B /* Browse */ = {
+			isa = PBXGroup;
+			children = (
+				E839CE5E9B8EBC79C0C7F7C5 /* BrowseView.swift */,
+				2687110777629E9E445EB63A /* FileDetailView.swift */,
+			);
+			path = Browse;
+			sourceTree = "<group>";
+		};
+		57C76ECD7981B958407D3249 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				EF659A99F1A1BCE8B5CC4DEB /* AppRouter.swift */,
+				E985145913C50EFC0F9707B6 /* ClaudePlannerApp.swift */,
+				14D2AFCC1119CFD8AECA27B9 /* RootView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		5D72C73833B9E0D2FA9A13AD /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				18199FA1C930D60FD0C7D46F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9A872E9D983FB6F7B50C9030 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5006755635E2D73502640152 /* BrainFile.swift */,
+				1C59D85B26DD8769096B8117 /* BrainTask.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B8CF75618F2F2F97F38529AC /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				DC725979DE4B8C45308F33B7 /* EditTaskSheet.swift */,
+				AA1BC72ED3059B35AF082BC4 /* TodayView.swift */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
+		DA0BCC829D0E99EDDDEFEA9F /* Talk */ = {
+			isa = PBXGroup;
+			children = (
+				EC509B9BF304BD2D2EE50B91 /* ClaudeClient.swift */,
+				18D996005924538CF9DD32EB /* SpeechRecognizer.swift */,
+				5518A364393CCA6DBA5DC984 /* TalkSettings.swift */,
+				BB1F58A7677EEA21E731F5B5 /* TalkToClaudeIntent.swift */,
+				EB8487ED8DB893F4C7461F49 /* TalkView.swift */,
+				2C360569C098BF03F1B3A48B /* TTSService.swift */,
+			);
+			path = Talk;
+			sourceTree = "<group>";
+		};
+		F049FAC4151ECEE68DBE13EC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3CF20901442EAE114F7A718A /* FilesStore.swift */,
+				40EE28BFF6C607A4E5DE5282 /* TodayStore.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		"TEMP_0A394A98-2D32-4626-8874-E52ABC91CA47" /* ios-app */ = {
+			isa = PBXGroup;
+			children = (
+				"TEMP_F0766E74-4F93-4F7A-969E-9060D69CBBC9" /* Config.local.xcconfig */,
+			);
+			path = "ios-app";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		227238EE51E44748C569556F /* ClaudePlanner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D3D92AE581DC18259720E5E /* Build configuration list for PBXNativeTarget "ClaudePlanner" */;
+			buildPhases = (
+				BDA9B06F6FE3E766AD39E4B9 /* Sources */,
+				4CB77557A07F9BA77780BEF9 /* Resources */,
+				676D8931AAB024F505B44F19 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClaudePlanner;
+			packageProductDependencies = (
+				BFB229137B9972E1FC74A7B5 /* FirebaseAuth */,
+				249F988F1E37873B40F5072D /* FirebaseFirestore */,
+				C593DE2FC7EDCC4EB48D4432 /* MarkdownUI */,
+			);
+			productName = ClaudePlanner;
+			productReference = FBAC42A3A5B03540267102E4 /* ClaudePlanner.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		59ED3130B1529EE514C93CCF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					227238EE51E44748C569556F = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = B99F2EBD3A798AC5F5251273 /* Build configuration list for PBXProject "ClaudePlanner" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 0CE10F1269EB64DE1CCBAA4F;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				CA78AA2614C819366362ECF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				120365795C96EB3B7FE6A383 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 20CB40DCB986B44937EFD891 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				227238EE51E44748C569556F /* ClaudePlanner */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4CB77557A07F9BA77780BEF9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				659E886AF6F5DFBFCC1EC213 /* Assets.xcassets in Resources */,
+				D66941B3DC45A630E3352A66 /* GoogleService-Info.plist in Resources */,
+				53ECB8976BAA70B7F0CA9AE7 /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BDA9B06F6FE3E766AD39E4B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D2A554976BAD1D62FC9D3D5 /* AppRouter.swift in Sources */,
+				8BCF8845152750C638D811E1 /* AuthService.swift in Sources */,
+				30DCDBDE28FC471E89711DB2 /* BrainFile.swift in Sources */,
+				954D9879107F5C7CBC07C4BE /* BrainTask.swift in Sources */,
+				4D2FCF14935551A762DB35AA /* BrowseView.swift in Sources */,
+				CB78F2729FA47E590E9AC395 /* ClaudeClient.swift in Sources */,
+				46ADEB5F234DB807129515A7 /* ClaudePlannerApp.swift in Sources */,
+				F4F5B81BB6E5668F59F6644D /* EditTaskSheet.swift in Sources */,
+				9CF44187D1EEF2D352082CC7 /* FileDetailView.swift in Sources */,
+				24D2619E2B28F635A0E6DA6F /* FilesStore.swift in Sources */,
+				D6A30E731991F864F75AA0D5 /* RootView.swift in Sources */,
+				9920D08F97FA4B6BB4FBF66F /* SignInView.swift in Sources */,
+				54641FC7434655FDEFC50B5B /* SpeechRecognizer.swift in Sources */,
+				BA72220B0EFB288EBA972402 /* TTSService.swift in Sources */,
+				269C5675C01AE8A5285F1E5B /* TalkSettings.swift in Sources */,
+				250DC18CD44E73839F799DE3 /* TalkToClaudeIntent.swift in Sources */,
+				0A73CD43D5B9A3D4DC49E874 /* TalkView.swift in Sources */,
+				4112E2C5E36F0CD1BFB8E038 /* TodayStore.swift in Sources */,
+				6C94C8299F1E80F798D4062F /* TodayView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		09A5DCD3EEBF04074ECF0F2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = "TEMP_F0766E74-4F93-4F7A-969E-9060D69CBBC9" /* Config.local.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ClaudePlanner/ClaudePlanner.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_ASSET_PATHS = "\"ClaudePlanner/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ClaudePlanner/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xerneas.claudeplanner;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1192C96A5329D8764FD61DDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = "TEMP_F0766E74-4F93-4F7A-969E-9060D69CBBC9" /* Config.local.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		7442DBF848E2336A2BA0BB2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = "TEMP_F0766E74-4F93-4F7A-969E-9060D69CBBC9" /* Config.local.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		D872BBF7CF7A53FD6E5BF213 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = "TEMP_F0766E74-4F93-4F7A-969E-9060D69CBBC9" /* Config.local.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ClaudePlanner/ClaudePlanner.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_ASSET_PATHS = "\"ClaudePlanner/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ClaudePlanner/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xerneas.claudeplanner;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7D3D92AE581DC18259720E5E /* Build configuration list for PBXNativeTarget "ClaudePlanner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09A5DCD3EEBF04074ECF0F2D /* Debug */,
+				D872BBF7CF7A53FD6E5BF213 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B99F2EBD3A798AC5F5251273 /* Build configuration list for PBXProject "ClaudePlanner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1192C96A5329D8764FD61DDF /* Debug */,
+				7442DBF848E2336A2BA0BB2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		120365795C96EB3B7FE6A383 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.0;
+			};
+		};
+		CA78AA2614C819366362ECF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		249F988F1E37873B40F5072D /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA78AA2614C819366362ECF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		BFB229137B9972E1FC74A7B5 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA78AA2614C819366362ECF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		C593DE2FC7EDCC4EB48D4432 /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 120365795C96EB3B7FE6A383 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 59ED3130B1529EE514C93CCF /* Project object */;
+}

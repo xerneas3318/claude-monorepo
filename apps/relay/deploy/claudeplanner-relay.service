@@ -1,0 +1,22 @@
+[Unit]
+Description=ClaudePlanner relay (Anthropic + Firestore)
+After=network.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/claudeplanner-relay/.env
+WorkingDirectory=/opt/claudeplanner/relay
+ExecStart=/usr/bin/node src/index.js
+Restart=on-failure
+RestartSec=5s
+User=www-data
+Group=www-data
+
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadOnlyPaths=/etc/claudeplanner-relay
+
+[Install]
+WantedBy=multi-user.target

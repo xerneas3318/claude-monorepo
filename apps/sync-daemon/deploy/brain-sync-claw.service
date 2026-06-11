@@ -1,0 +1,22 @@
+[Unit]
+Description=ClaudePlanner Brain sync (Hetzner node)
+After=network.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/brain-sync-claw/.env
+WorkingDirectory=/opt/sync-daemon
+ExecStart=/usr/local/bin/node src/index.js
+Restart=on-failure
+RestartSec=5s
+User=root
+Group=root
+
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/opt/Brain
+
+[Install]
+WantedBy=multi-user.target

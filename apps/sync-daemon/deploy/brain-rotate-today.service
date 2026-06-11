@@ -1,0 +1,17 @@
+[Unit]
+Description=Rotate Brain daily/today.md (archive yesterday, carry over, pull from future.md)
+After=network.target brain-sync-claw.service
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/brain-sync-claw/.env
+Environment=TZ=America/New_York
+WorkingDirectory=/opt/sync-daemon
+ExecStart=/usr/local/bin/node scripts/rotate-today.js
+User=root
+Group=root
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/opt/Brain

@@ -1,0 +1,7 @@
+// Local-only config — gitignored. Holds deployment-specific values that
+// should not be committed (relay URL, etc.). The committed
+// `Config.local.xcconfig.example` is the template.
+//
+// Edit this file with your own values, then run `xcodegen generate`.
+
+RELAY_BASE_URL = https:/$()/relay.dream-canvas.ai

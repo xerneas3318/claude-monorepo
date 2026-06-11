@@ -1,0 +1,19 @@
+{
+  "name": "brain-sync-daemon",
+  "version": "0.1.0",
+  "description": "Bidirectional sync between Brain markdown files and Firestore. Event-driven, zero idle CPU.",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test:connection": "node scripts/test-connection.js",
+    "sync:once": "node scripts/sync-once.js",
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "chokidar": "^3.6.0",
+    "firebase-admin": "^12.7.0"
+  }
+}
