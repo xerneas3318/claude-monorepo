@@ -22,6 +22,22 @@ claude-monorepo/
 └── README.md
 ```
 
+## Install
+
+One script handles everything:
+
+```bash
+./install.sh             # interactive menu
+./install.sh --all       # install system deps + all apps
+./install.sh --relay     # just relay
+./install.sh --sync      # just sync-daemon
+./install.sh --ios       # bootstrap Xcode project (requires xcodegen)
+./install.sh --doctor    # check prerequisites only, install nothing
+./install.sh --help
+```
+
+On macOS the script installs missing system deps via Homebrew (`node`, `xcodegen`). On Linux it expects those already on PATH.
+
 ## Quickstart per app
 
 | App           | Setup                                  | Run                              |
