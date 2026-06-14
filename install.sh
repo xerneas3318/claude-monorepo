@@ -10,12 +10,15 @@
 #   ./install.sh --brain        # info about the brain folder
 #   ./install.sh --deps-only    # only system deps (node, xcodegen)
 #   ./install.sh --doctor       # check prerequisites, install nothing
+#   ./install.sh --version      # print version and exit
 #   ./install.sh -h | --help
 
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$ROOT"
+
+VERSION="$(cat "$ROOT/VERSION" 2>/dev/null || echo "unknown")"
 
 # ---------- pretty ----------
 b()  { printf '\033[1m%s\033[0m\n' "$*"; }
@@ -150,12 +153,15 @@ while (( $# )); do
     --brain)      WANT_BRAIN=1 ;;
     --deps-only)  WANT_DEPS=1 ;;
     --doctor|--check) WANT_DOCTOR=1 ;;
+    --version|-V) printf 'claude-monorepo %s\n' "$VERSION"; exit 0 ;;
     -h|--help)
-      sed -n '2,16p' "$0"; exit 0 ;;
+      sed -n '2,14p' "$0"; exit 0 ;;
     *) die "unknown arg: $1 (try --help)" ;;
   esac
   shift
 done
+
+b "claude-monorepo $VERSION"
 
 if (( WANT_DOCTOR )); then doctor; exit 0; fi
 if (( WANT_DEPS )); then system_deps; exit 0; fi

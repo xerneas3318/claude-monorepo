@@ -1,6 +1,6 @@
 {
   "name": "brain-sync-daemon",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Bidirectional sync between Brain markdown files and Firestore. Event-driven, zero idle CPU.",
   "private": true,
   "type": "module",
